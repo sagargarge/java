@@ -1,0 +1,102 @@
+PACKAGES
+
+Containers for classes. A package is a group of similar type of classes interfaces and sub-packages.
+Just a folder inside the workspace(root) directory, used to differentiate and manage the classes.
+If there are two classes in application with same name, then we won’t be able to use members of a specific class, to identify the class we used to create packages.
+We could inherit the class from different package to use the members but can’t create the object of superclasss, while on importing package, object of imported class can be created.InValid
+Java.lang package is by default inherited in every file.
+One can import the same package or same class multiple times. Neither compiler nor JVM complains about it.But the JVM will internally load the class only once no matter how many times you import the same class.
+
+equals method from String class and Object class. 
+
+Standard : com.oraganization_name.type_of_classes
+	     com.psl.test
+
+ACCESS Specifiers :
+
+Public –    everywhere [variable, Method, class]
+Protected – only accessible in derived classes, both class can be in different packages 
+Default – max scope is same package, if not provided any specifier
+Private – in the same class, 
+
+Private 	No Modifier 	Protected 	Public
+Same class 				Yes 		Yes 		Yes 		Yes
+Same package subclass 		No 		Yes 		Yes 		Yes
+Same package non-subclass 		No 		Yes 		No 		Yes
+Different package subclass 		No 		No 		Yes 		Yes
+Different package non-subclass 	No 		No 		No 		Yes
+
+If class specifier is public then doesn’t mean each and every member(variables, methods and constructors) in that class is public. Each member has it’s own specifier.
+Can write only import and package statements outside class in a programme. Package must be the first statement in one file then import. 
+An outer class can only be public or default, it will give a compiler error if any other specifier is provided.   
+
+Static Import : JRE 1.5
+To call the static method from other package’s class.
+importstatic com.psl.Test.Date_Display.*;
+package com.psl.controller;
+
+
+import com.psl.Test.*; //importing all classes from the package
+
+importstatic com.psl.Test.Date_Display.*; //Importing staic members of Date Display class
+
+
+
+publicclass Package_Demo {
+
+	publicstaticvoid main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Date_Display obj = new Date_Display(14,10,2016);
+		
+		
+		obj.Show();
+		
+		String name = obj.show1();
+		
+		System.out.println(name);
+		
+		
+		Date_Display.display();      //Default way
+		display();                   //Static Import Way
+		
+		System.out.println(x);
+		
+				
+	}
+
+}
+
+package com.psl.Test;
+
+publicclass Date_Display {
+
+	intdate=0;
+	intmonth=0;
+	intyear=0;
+
+	publicstaticintx = 10;
+
+	public Date_Display(intdate, intmonth, intyear) {
+
+		this.date = date;
+		this.month = month;
+		this.year = year;
+	}
+
+	publicvoid Show() {
+
+		System.out.println("Date :" + date + month + year);
+
+	}
+	
+	public String show1() {
+		
+		return"" + date + "  " + month + " " + year;
+	}
+
+	publicstaticvoid display() {
+
+		System.out.println("Static method is called");
+	}
+}
