@@ -19,12 +19,12 @@ Protected – only accessible in derived classes, both class can be in different
 Default – max scope is same package, if not provided any specifier
 Private – in the same class, 
 
-Private 	No Modifier 	Protected 	Public
+					Private 	No Modifier 	Protected 	Public
 Same class 				Yes 		Yes 		Yes 		Yes
-Same package subclass 		No 		Yes 		Yes 		Yes
+Same package subclass 			No 		Yes 		Yes 		Yes
 Same package non-subclass 		No 		Yes 		No 		Yes
 Different package subclass 		No 		No 		Yes 		Yes
-Different package non-subclass 	No 		No 		No 		Yes
+Different package non-subclass 		No 		No 		No 		Yes
 
 If class specifier is public then doesn’t mean each and every member(variables, methods and constructors) in that class is public. Each member has it’s own specifier.
 Can write only import and package statements outside class in a programme. Package must be the first statement in one file then import. 
